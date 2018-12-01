@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionsService } from '../questions.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-submit',
@@ -8,12 +8,19 @@ import { QuestionsService } from '../questions.service';
 })
 export class SubmitComponent implements OnInit {
 
-  constructor(private questionsService: QuestionsService) {}
+  constructor(private app: AppComponent) {}
 
   ngOnInit() {
   }
 
+
+
   myEvent(event) {
-    console.log(event)
+    if (this.app.counter == 11) {
+      this.app.counter = 1;
+      this.app.restart()
+    } else {
+      this.app.nextQuestion()
+    }    
   }
 }

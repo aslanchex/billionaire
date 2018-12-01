@@ -10,19 +10,46 @@ export class AppComponent {
   
   answers= [];
   question = [];
-  counter= 1;
+  difficulty = [];
+  counter = 1;
   constructor(private questionsService: QuestionsService) {}
 
-  ngOnInit() {
-    
-    // this.answers = this.questionsService.answers;
-    this.questionsService.getQuestions('easy').subscribe(q => {
+  getQuestion(difficulty) {
+    this.questionsService.getQuestions(difficulty).subscribe(q => {
       
       this.answers = q[0].incorrect_answer;
       this.answers.push(q[0].correct_answer);
       this.question = q[0].question;
-      console.log(this.question)
-      console.log(this.answers)        
+      this.difficulty = q[0].difficulty;
+      console.log(this.question, this.answers, this.difficulty)     
     })
   }
+
+  ngOnInit() {
+    
+    // this.answers = this.questionsService.answers;
+    this.getQuestion('easy')
+    
+  }
+
+  nextQuestion() {
+    
+    if (this.counter < 4) {
+      this.counter++;
+      this.getQuestion('easy');
+    } else if (this.counter > 7) {
+      this.counter++;
+      this.getQuestion('hard');
+    } else {
+      this.counter++;
+      this.getQuestion('medium');
+    }
+    
+    console.log(this.counter);
+  }
+
+  restart() {
+    this.ngOnInit()
+  }
+
 }
