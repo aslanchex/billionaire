@@ -1,0 +1,69 @@
+.answer {
+    height: 164px;
+    width: 570px;
+    background: #FAFAFA;
+    border: 2px solid #D9E6EB;
+    border-radius: 23px;
+    display: inline-table;
+    margin: 15px 15px 15px 15px;
+    font-family: OpenSans-Semibold;
+    font-size: 28px;
+    color: #496472;
+    letter-spacing: 0;
+}
+
+.answer:hover {
+    box-shadow: 0.5px 0.5px 8px rgba(201, 201, 201, 0.411)
+}
+
+.clicked {
+    background: #FAFAFA;
+    border: 4px solid #0D7BAB;
+    border-radius: 23px;
+    font-family: OpenSans-Semibold;
+    font-size: 28px;
+    color: #0D7BAB;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.wrong {
+    background: #FAFAFA;
+    border: 4px solid #FB4343;
+    border-radius: 23px;
+    font-family: OpenSans-Semibold;
+    font-size: 28px;
+    color: #FB4343;
+    letter-spacing: 0;
+    text-align: center;
+    background-image: url(../../assets/images/wrong.png);
+    background-position: 37px center;
+    background-repeat: no-repeat;
+}
+
+.right {
+    background: #FAFAFA;
+    border: 4px solid #33C933;
+    border-radius: 23px;
+    font-family: OpenSans-Semibold;
+    font-size: 28px;
+    color: #33C933;
+    letter-spacing: 0;
+    text-align: center;
+    background-image: url(../../assets/images/ok.png);
+    background-position: 37px center;
+    background-repeat: no-repeat;
+}
+
+.answer p {
+    margin: 0;
+    padding: 0;
+    width: 310px;
+    height: 87px;
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    display: inherit;  
+      
+} 

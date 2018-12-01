@@ -3,14 +3,24 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AnswerComponent } from './answer/answer.component';
+import { QuestionComponent } from './question/question.component';
+import { ScrollComponent } from './scroll/scroll.component';
+import { SubmitComponent } from './submit/submit.component';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AnswerComponent,
+    QuestionComponent,
+    ScrollComponent,
+    SubmitComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

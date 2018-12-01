@@ -1,0 +1,38 @@
+
+
+button {
+    margin-top: 32px;
+    margin-bottom: 57px;
+    padding: 0;
+    border: none;
+    background: #F0F0F0;
+    border-radius: 100px;
+    width: 375px;
+    height: 69px;
+    cursor: pointer;
+    font-family: OpenSans-Semibold;
+    font-size: 30px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+button p {
+    padding: 0;
+    margin: 0;
+}
+
+.select {
+    background: #FF8F48;
+}
+
+.select:hover {
+    background: #F68034;
+}
+
+.right {
+    background: #FF8F48;
+}
+
+.wrong {
+    background: #FF8F48;
+}
