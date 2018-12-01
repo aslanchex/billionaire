@@ -9,6 +9,7 @@ import { ScrollComponent } from './scroll/scroll.component';
 import { SubmitComponent } from './submit/submit.component';
 import { HttpModule } from '@angular/http';
 import { HoverDirective } from './hover.directive';
+import { QuestionsService } from './questions.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { HoverDirective } from './hover.directive';
     BrowserModule,
     HttpModule
   ],
-  providers: [],
+  providers: [QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

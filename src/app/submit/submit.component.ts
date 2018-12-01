@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionsService } from '../questions.service';
 
 @Component({
   selector: 'app-submit',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitComponent implements OnInit {
 
-  constructor() { }
+  constructor(private questionsService: QuestionsService) {}
 
   ngOnInit() {
+  }
+
+  myEvent(event) {
+    console.log(event)
   }
 }

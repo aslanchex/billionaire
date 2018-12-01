@@ -1,8 +1,9 @@
-
-
 button {
     margin-top: 32px;
     margin-bottom: 57px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     padding: 0;
     border: none;
     background: #F0F0F0;

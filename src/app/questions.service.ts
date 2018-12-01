@@ -7,13 +7,14 @@ export class QuestionsService {
 
   constructor(private http: Http) { }
 
-  getQuestions() {
-    return this.http.get('https://opentdb.com/api.php?amount=2&type=multiple').map(resp => resp.json().results).map(answers => {
+  getQuestions(difficulty) {
+    return this.http.get('https://opentdb.com/api.php?amount=1&type=multiple&difficulty='+difficulty).map(resp => resp.json().results).map(answers => {
       return answers.map(a => {
         return {
           question: a.question,
           correct_answer: a.correct_answer,
-          incorrect_answer: a.incorrect_answers
+          incorrect_answer: a.incorrect_answers,
+          difficulty: a.difficulty
         }
       })
     });

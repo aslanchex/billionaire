@@ -11,4 +11,7 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() question
+  @Input() counter
 }
