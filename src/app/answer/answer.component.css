@@ -16,7 +16,7 @@
     box-shadow: 0.5px 0.5px 8px rgba(201, 201, 201, 0.411)
 }
 
-.clicked {
+.marked {
     background: #FAFAFA;
     border: 4px solid #0D7BAB;
     border-radius: 23px;

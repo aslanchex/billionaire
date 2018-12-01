@@ -9,9 +9,14 @@ export class AnswerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {  
-  }
+  ngOnInit() {}
 
   @Input() answer;
+  // isMarked = false;
+
+  onClick() {
+    // console.log('Clicked');
+    // this.isMarked = true;
+  }
 
 }

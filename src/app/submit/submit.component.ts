@@ -11,5 +11,4 @@ export class SubmitComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

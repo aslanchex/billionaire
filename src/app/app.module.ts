@@ -8,6 +8,7 @@ import { QuestionComponent } from './question/question.component';
 import { ScrollComponent } from './scroll/scroll.component';
 import { SubmitComponent } from './submit/submit.component';
 import { HttpModule } from '@angular/http';
+import { HoverDirective } from './hover.directive';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpModule } from '@angular/http';
     AnswerComponent,
     QuestionComponent,
     ScrollComponent,
-    SubmitComponent
+    SubmitComponent,
+    HoverDirective
   ],
   imports: [
     BrowserModule,
