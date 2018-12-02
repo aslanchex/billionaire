@@ -11,20 +11,17 @@ export class ScrollComponent implements OnInit {
 
   constructor(private app: AppComponent) { }
 
-  // ngOnInit() {
-  //   let scrolls = document.querySelectorAll('.scroll_item');
-  //   console.log(scrolls[0])
-  //   scrolls[0].classList.add('active');
-  // }
   ngOnInit(){}
-  
+
   ngDoCheck() {
     let scrolls = document.querySelectorAll('.scroll_item');
-    if (this.app.counter < 11) {
+    if (this.app.counter != 1) {
         
       scrolls[this.app.counter-1].classList.add('active');
     } else {
-      scrolls.forEach(item => item.classList.remove('active'))
+      for (let index = 0; index < scrolls.length; index++) {
+        scrolls[index].classList.remove('active')       
+      }
     }   
   }
 }

@@ -10,17 +10,9 @@ export class SubmitComponent implements OnInit {
 
   constructor(private app: AppComponent) {}
 
-  ngOnInit() {
-  }
-
-
+  ngOnInit() {}
 
   myEvent(event) {
-    if (this.app.counter == 11) {
-      this.app.counter = 1;
-      this.app.restart()
-    } else {
-      this.app.nextQuestion()
-    }    
+    this.app.nextQuestion();
   }
 }

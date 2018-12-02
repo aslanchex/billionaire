@@ -8,18 +8,18 @@ export class HoverDirective {
   constructor() { }
 
   @HostBinding('class.marked') isMarked = false;
-  @HostBinding('class.select') isSelected = false;
-
+  isSelected = false;
   
   @HostListener('click') onClick() {
     let marked = document.querySelectorAll('.marked');
+    let select = document.querySelector('button')
     // console.log(marked.length);
     if (marked.length < 1 ) {
       this.isMarked = true;
-      this.isSelected = true;
+      select.classList.add('select')
     } else {
       this.isMarked = false;
-      this.isSelected =  false; 
+      select.classList.remove('select')
     }
   }
 }

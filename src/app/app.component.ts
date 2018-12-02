@@ -7,49 +7,49 @@ import { QuestionsService } from './questions.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  
+
+  constructor(private questionsService: QuestionsService) {}
+
   answers= [];
   question = [];
   difficulty = [];
-  counter = 1;
-  constructor(private questionsService: QuestionsService) {}
-
+  counter = 0;
+  correct_answer = {};
+  
   getQuestion(difficulty) {
+    this.counter++;
     this.questionsService.getQuestions(difficulty).subscribe(q => {
-      
       this.answers = q[0].incorrect_answer;
+      this.correct_answer['text'] = q[0].correct_answer;
       this.answers.push(q[0].correct_answer);
       this.question = q[0].question;
       this.difficulty = q[0].difficulty;
-      console.log(this.question, this.answers, this.difficulty)     
+      this.answers.sort(() => Math.random() - 0.5); 
+      this.correct_answer['index'] = this.answers.indexOf(q[0].correct_answer); 
+      console.log(this.correct_answer); 
     })
   }
 
   ngOnInit() {
-    
-    // this.answers = this.questionsService.answers;
-    this.getQuestion('easy')
-    
+    this.getQuestion('easy') 
   }
 
   nextQuestion() {
     
-    if (this.counter < 4) {
-      this.counter++;
+    if (this.counter == 10) {
+      this.restart();
+    } else if (this.counter < 4) {
       this.getQuestion('easy');
     } else if (this.counter > 7) {
-      this.counter++;
       this.getQuestion('hard');
     } else {
-      this.counter++;
       this.getQuestion('medium');
-    }
-    
-    console.log(this.counter);
+    }  
+    // console.log(this.counter);
   }
 
   restart() {
+    this.counter = 0;
     this.ngOnInit()
   }
-
 }

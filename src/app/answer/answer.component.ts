@@ -11,12 +11,5 @@ export class AnswerComponent implements OnInit {
 
   ngOnInit() {}
 
-  @Input() answer;
-  // isMarked = false;
-
-  onClick() {
-    // console.log('Clicked');
-    // this.isMarked = true;
-  }
-
+  @Input() answer;  
 }
