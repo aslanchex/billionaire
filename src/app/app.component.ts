@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { QuestionsService } from './questions.service';
-import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-root',
@@ -11,28 +11,32 @@ export class AppComponent {
 
   constructor(private questionsService: QuestionsService) {}
 
-  answers= [];
+  answers = [];
   question = [];
   difficulty = [];
   counter = 0;
   correct_answer = {};
   
+  decodeHTML(html) {
+    let txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return txt.value;
+  };
+
   getQuestion(difficulty) {
     this.counter++;
     this.questionsService.getQuestions(difficulty).subscribe(q => {
       this.answers = q[0].incorrect_answer;
       this.correct_answer['text'] = q[0].correct_answer;
       this.answers.push(q[0].correct_answer);
-      this.question = q[0].question;
+      this.question = this.decodeHTML(q[0].question);
       this.difficulty = q[0].difficulty;
       this.answers.sort(() => Math.random() - 0.5); 
       this.correct_answer['index'] = this.answers.indexOf(q[0].correct_answer); 
-      console.log(this.correct_answer); 
     })
   }
 
   ngOnInit() {
-    this.counter = 0;
     this.nextQuestion();
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Host } from '@angular/core';
 import { AppComponent } from '../app.component';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-submit',
@@ -13,16 +14,14 @@ export class SubmitComponent implements OnInit {
   ngOnInit() {}
 
   addContinueButton() {
-    let button = document.querySelector('button');
-    button.innerHTML = '<p>Continue</p>';
-    button.classList.add('continue');
+    $('button').html('<p>Continue</p>');
+    $('button').addClass('continue');
   }
 
   myEvent(event) {
-    let button = document.querySelector('button');
-    let ans = document.querySelectorAll('.answer');
+    let ans = $('.answer');
 
-    if (button.classList.contains('continue') == false) {
+    if ($('button').hasClass('continue') == false) {
       return new Promise((resolve, reject) => {
         for (let i = 0; i < ans.length; i++) {
           if (ans[i].classList.contains('marked')) {
@@ -43,19 +42,25 @@ export class SubmitComponent implements OnInit {
       },
       ()=>{
         this.addContinueButton();
-        $('.continue').click(this.app.ngOnInit);
+        //$('.continue').click(this.app.nextQuestion);
         this.app.counter = 0;
       }) 
     } else {
-      return new Promise((resolve, reject) => {
-        // console.log(ansIsTrue)
-        this.app.nextQuestion();
-        resolve();
-      }).then(() => {
-        button.innerHTML = '<p>OK</p>';
-        button.classList.remove('continue', 'select');
-        button.disabled = true;
-      })
+      // return new Promise((resolve, reject) => {
+      //   // console.log(ansIsTrue)
+      //   this.app.nextQuestion();
+      //   resolve();
+      // }).then(() => {
+      //   button.innerHTML = '<p>OK</p>';
+      //   button.classList.remove('continue', 'select');
+      //   button.disabled = true;
+      // })
+      // //i just have been checking this way
+
+      this.app.nextQuestion();        
+      $('button').html('<p>OK</p>');
+      $('button').removeClass('continue select');
+      $('button').prop('disabled', true);
     }
   }
 }
