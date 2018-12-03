@@ -26,7 +26,7 @@ export class SubmitComponent implements OnInit {
         for (let i = 0; i < ans.length; i++) {
           if (ans[i].classList.contains('marked')) {
             if (this.app.correct_answer['index'] == String(i)) {
-              console.log(i)
+              // console.log(i)
               ans[i].classList.remove('marked');
               ans[i].classList.add('right');
             } else {

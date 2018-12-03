@@ -12,6 +12,12 @@ export class QuestionComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Input() question
+  decodeHTML(html) {
+    let txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return String(txt.value);
+  } 
+
+  @Input() question= this.decodeHTML(this.question)
   @Input() counter
 }

@@ -1,7 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { QuestionsService } from './questions.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,10 +17,10 @@ export class AppComponent {
   correct_answer = {};
   
   decodeHTML(html) {
-    let txt = document.createElement('textarea');
-    txt.innerHTML = html;
-    return txt.value;
-  };
+      let txt = document.createElement('textarea');
+      txt.innerHTML = html;
+      return String(txt.value);
+  }
 
   getQuestion(difficulty) {
     this.counter++;
@@ -29,10 +28,12 @@ export class AppComponent {
       this.answers = q[0].incorrect_answer;
       this.correct_answer['text'] = q[0].correct_answer;
       this.answers.push(q[0].correct_answer);
-      this.question = this.decodeHTML(q[0].question);
+      this.question = q[0].question;
       this.difficulty = q[0].difficulty;
       this.answers.sort(() => Math.random() - 0.5); 
       this.correct_answer['index'] = this.answers.indexOf(q[0].correct_answer); 
+      
+      console.log(this.correct_answer)
     })
   }
 
