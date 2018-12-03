@@ -1,5 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { QuestionsService } from './questions.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -31,13 +32,14 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.getQuestion('easy') 
+    this.counter = 0;
+    this.nextQuestion();
   }
 
   nextQuestion() {
     
     if (this.counter == 10) {
-      this.restart();
+      this.ngOnInit();
     } else if (this.counter < 4) {
       this.getQuestion('easy');
     } else if (this.counter > 7) {
@@ -45,11 +47,5 @@ export class AppComponent {
     } else {
       this.getQuestion('medium');
     }  
-    // console.log(this.counter);
-  }
-
-  restart() {
-    this.counter = 0;
-    this.ngOnInit()
   }
 }

@@ -64,6 +64,6 @@
     color: inherit;
     font-family: inherit;
     font-size: inherit;
-    display: inherit;  
-      
+    display: table-cell;
+    vertical-align: middle;  
 } 

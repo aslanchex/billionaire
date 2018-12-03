@@ -4,9 +4,9 @@
   <div class='logo'></div>
 </header>
 <div class='game-window'>
-  <app-question [question]="question" [counter]="counter"></app-question>
+  <app-question [question]="question" [counter]='counter'></app-question>
   <app-answer 
-    *ngFor="let answer of answers"
+    *ngFor="let answer of answers;"
     [answer]="answer"
   ></app-answer>
   <app-submit></app-submit>

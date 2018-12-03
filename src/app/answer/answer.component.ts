@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-answer',
@@ -11,5 +12,6 @@ export class AnswerComponent implements OnInit {
 
   ngOnInit() {}
 
-  @Input() answer;  
+  @Input() answer;
+  @Input() correct_answer;
 }

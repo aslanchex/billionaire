@@ -1,4 +1,5 @@
 import { Directive, HostBinding, HostListener } from '@angular/core';
+import * as $ from 'jquery';
 
 @Directive({
   selector: '[appHover]'
@@ -12,14 +13,16 @@ export class HoverDirective {
   
   @HostListener('click') onClick() {
     let marked = document.querySelectorAll('.marked');
-    let select = document.querySelector('button')
-    // console.log(marked.length);
+   
     if (marked.length < 1 ) {
       this.isMarked = true;
-      select.classList.add('select')
+      $('button').toggleClass('select')
+      // select.classList.add('select')
+      $('button').prop('disabled', false)
     } else {
       this.isMarked = false;
-      select.classList.remove('select')
+      $('button').toggleClass('select')
+      $('button').prop('disabled', true)
     }
   }
 }

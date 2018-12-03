@@ -22,6 +22,14 @@ button p {
     margin: 0;
 }
 
+.continue {
+    background: #FF8F48;
+}
+
+.continue:hover {
+    background: #F68034;
+}
+
 .select {
     background: #FF8F48;
 }
